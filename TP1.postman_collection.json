@@ -1,0 +1,2162 @@
+{
+	"info": {
+		"_postman_id": "9c68cc59-2381-4590-bfe6-e5304d97a49a",
+		"name": "TP1 ArchiD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30134868",
+		"_collection_link": "https://gold-desert-241151.postman.co/workspace/TP-Archie~39c03ae2-509a-4b19-9333-4c7bf31409f7/collection/30134868-9c68cc59-2381-4590-bfe6-e5304d97a49a?action=share&source=collection_link&creator=30134868"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "movies/{movieid}",
+					"item": [
+						{
+							"name": "get the movie by its id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{movie}}/movies/720d006c-3a57-4b6a-b18f-9b713b073f3c",
+									"host": [
+										"{{movie}}"
+									],
+									"path": [
+										"movies",
+										"720d006c-3a57-4b6a-b18f-9b713b073f3c"
+									]
+								},
+								"description": "By passing in the appropriate options, you can get info of a Movie"
+							},
+							"response": [
+								{
+									"name": "Movie description",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<float>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}"
+								},
+								{
+									"name": "bad input parameter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "add a movie item",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"title\": \"Test\",\n  \"rating\": \"9.9\",\n  \"director\": \"Gérard\",\n  \"id\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{movie}}/movies/:movieid",
+									"host": [
+										"{{movie}}"
+									],
+									"path": [
+										"movies",
+										":movieid"
+									],
+									"variable": [
+										{
+											"key": "movieid",
+											"value": "<string>",
+											"description": "(Required) Movie ID."
+										}
+									]
+								},
+								"description": "Adds a movie to the system"
+							},
+							"response": [
+								{
+									"name": "Movie created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<float>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<float>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}"
+								},
+								{
+									"name": "an existing item already exists",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<float>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "delete a movie item",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{movie}}/movies/test",
+									"host": [
+										"{{movie}}"
+									],
+									"path": [
+										"movies",
+										"test"
+									]
+								},
+								"description": "Adds a movie to the system"
+							},
+							"response": [
+								{
+									"name": "item deleted",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "ID not found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "update a movie rate",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{movie}}/movies/720d006c-3a57-4b6a-b18f-9b713b073f3c/1.0",
+									"host": [
+										"{{movie}}"
+									],
+									"path": [
+										"movies",
+										"720d006c-3a57-4b6a-b18f-9b713b073f3c",
+										"1.0"
+									]
+								},
+								"description": "update the rating of a movie"
+							},
+							"response": [
+								{
+									"name": "rate updated",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid/:rate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid",
+												":rate"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												},
+												{
+													"key": "rate",
+													"value": "<integer>",
+													"description": "(Required) Movie rating."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "movie ID not found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/movies/:movieid/:rate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"movies",
+												":movieid",
+												":rate"
+											],
+											"variable": [
+												{
+													"key": "movieid",
+													"value": "<string>",
+													"description": "(Required) Movie ID."
+												},
+												{
+													"key": "rate",
+													"value": "<integer>",
+													"description": "(Required) Movie rating."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "home page of the service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "{{movie}}/",
+							"host": [
+								"{{movie}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Nothing to do\n"
+					},
+					"response": [
+						{
+							"name": "welcome message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "get the full JSON database Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{movie}}/json",
+							"host": [
+								"{{movie}}"
+							],
+							"path": [
+								"json"
+							]
+						},
+						"description": "Nothing to do\n"
+					},
+					"response": [
+						{
+							"name": "full JSON",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/json",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"json"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"movies\": [\n    {\n      \"title\": \"<string>\",\n      \"rating\": \"<float>\",\n      \"director\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"rating\": \"<float>\",\n      \"director\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get the movie by its title",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{movie}}/moviesbytitle?title=The Martian",
+							"host": [
+								"{{movie}}"
+							],
+							"path": [
+								"moviesbytitle"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "The Martian"
+								}
+							]
+						},
+						"description": "By passing in the appropriate options, you can get Movie info\n"
+					},
+					"response": [
+						{
+							"name": "Movie item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/titles?title=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"titles"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<float>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/titles?title=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"titles"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Showtime",
+			"item": [
+				{
+					"name": "home page of the service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "{{showtime}}/",
+							"host": [
+								"{{showtime}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "welcome message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "get the full JSON database",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{showtime}}/showtimes",
+							"host": [
+								"{{showtime}}"
+							],
+							"path": [
+								"showtimes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "full JSON",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/showtimes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"showtimes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"schedule\": [\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}"
+						}
+					]
+				},
+				{
+					"name": "get the schedule by date",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{showtime}}/showmovies/20151205",
+							"host": [
+								"{{showtime}}"
+							],
+							"path": [
+								"showmovies",
+								"20151205"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Schedule",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/showmovies/:date",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"showmovies",
+										":date"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "<string>",
+											"description": "(Required) date."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"date\": \"<string>\",\n  \"movies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/showmovies/:date",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"showmovies",
+										":date"
+									],
+									"variable": [
+										{
+											"key": "date",
+											"value": "<string>",
+											"description": "(Required) date."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "bookings",
+					"item": [
+						{
+							"name": "{userid}",
+							"item": [
+								{
+									"name": "get the bookings from a user id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{booking}}/bookings/chris_rivers",
+											"host": [
+												"{{booking}}"
+											],
+											"path": [
+												"bookings",
+												"chris_rivers"
+											]
+										},
+										"description": "By passing in the appropriate options, you can get bookings of a user"
+									},
+									"response": [
+										{
+											"name": "Bookings of the user",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/bookings/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"bookings",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dates\": [\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userid\": \"<string>\"\n}"
+										},
+										{
+											"name": "bad input parameter",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/bookings/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"bookings",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "add a booking for a user",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"date\": \"20151202\",\n  \"movieid\": \"720d006c-3a57-4b6a-b18f-9b713b073ferc\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{booking}}/bookings/chris_rivers",
+											"host": [
+												"{{booking}}"
+											],
+											"path": [
+												"bookings",
+												"chris_rivers"
+											]
+										},
+										"description": "Adds a booking for the user, the service showtimes have to be requested to check the validity of the booking that is asked"
+									},
+									"response": [
+										{
+											"name": "Booking created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"date\": \"<string>\",\n  \"movieid\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/bookings/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"bookings",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"dates\": [\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userid\": \"<string>\"\n}"
+										},
+										{
+											"name": "an existing item already exists",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"date\": \"<string>\",\n  \"movieid\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/bookings/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"bookings",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "Conflict",
+											"code": 409,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get the full JSON database",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{booking}}/bookings",
+									"host": [
+										"{{booking}}"
+									],
+									"path": [
+										"bookings"
+									]
+								},
+								"description": "Nothing to do\n"
+							},
+							"response": [
+								{
+									"name": "full JSON",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/bookings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bookings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"dates\": [\n      {\n        \"date\": \"<string>\",\n        \"movies\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"date\": \"<string>\",\n        \"movies\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"userid\": \"<string>\"\n  },\n  {\n    \"dates\": [\n      {\n        \"date\": \"<string>\",\n        \"movies\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      {\n        \"date\": \"<string>\",\n        \"movies\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    ],\n    \"userid\": \"<string>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "home page of the service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "{{booking}}/",
+							"host": [
+								"{{booking}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "Nothing to do\n"
+					},
+					"response": [
+						{
+							"name": "welcome message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "users",
+					"item": [
+						{
+							"name": "{userid}",
+							"item": [
+								{
+									"name": "get the user from a user id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{user}}/users/chris_rivers",
+											"host": [
+												"{{user}}"
+											],
+											"path": [
+												"users",
+												"chris_rivers"
+											]
+										},
+										"description": "By passing the id of the user you can get the user"
+									},
+									"response": [
+										{
+											"name": "get the right user",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/users/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"users",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"last_activve\": \"<integer>\"\n}"
+										},
+										{
+											"name": "User ID not found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/users/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"users",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "add a user",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/users/:userid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users",
+												":userid"
+											],
+											"variable": [
+												{
+													"key": "userid",
+													"value": "<string>",
+													"description": "(Required) User ID."
+												}
+											]
+										},
+										"description": "Adds an user"
+									},
+									"response": [
+										{
+											"name": "User created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/users/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"users",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"last_activve\": \"<integer>\"\n}"
+										},
+										{
+											"name": "an existing item already exists",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/users/:userid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"users",
+														":userid"
+													],
+													"variable": [
+														{
+															"key": "userid",
+															"value": "<string>",
+															"description": "(Required) User ID."
+														}
+													]
+												}
+											},
+											"status": "Conflict",
+											"code": 409,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain"
+												}
+											],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "get all users",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{user}}/users",
+									"host": [
+										"{{user}}"
+									],
+									"path": [
+										"users"
+									]
+								},
+								"description": "return all users"
+							},
+							"response": [
+								{
+									"name": "list of all users",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/users",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"last_activve\": \"<integer>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"last_activve\": \"<integer>\"\n  }\n]"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "booking/{userid}",
+					"item": [
+						{
+							"name": "get the bookings from a user id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{user}}/booking/chris_rivers",
+									"host": [
+										"{{user}}"
+									],
+									"path": [
+										"booking",
+										"chris_rivers"
+									]
+								},
+								"description": "By passing in the appropriate options, you can get bookings of a user"
+							},
+							"response": [
+								{
+									"name": "Bookings of the user",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/booking/:userid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												":userid"
+											],
+											"variable": [
+												{
+													"key": "userid",
+													"value": "<string>",
+													"description": "(Required) User ID."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dates\": [\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userid\": \"<string>\"\n}"
+								},
+								{
+									"name": "bad input parameter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/booking/:userid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												":userid"
+											],
+											"variable": [
+												{
+													"key": "userid",
+													"value": "<string>",
+													"description": "(Required) User ID."
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "add a booking for a user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"date\": \"20151201\",\n  \"movieid\": \"720d006c-3a57-4b6a-b18f-9b713b073f3c\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{user}}/booking/chris_rivers",
+									"host": [
+										"{{user}}"
+									],
+									"path": [
+										"booking",
+										"chris_rivers"
+									]
+								},
+								"description": "Adds a booking for the user, the service showtimes have to be requested to check the validity of the booking that is asked"
+							},
+							"response": [
+								{
+									"name": "Booking created",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"date\": \"<string>\",\n  \"movieid\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/:userid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												":userid"
+											],
+											"variable": [
+												{
+													"key": "userid",
+													"value": "<string>",
+													"description": "(Required) User ID."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"dates\": [\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"date\": \"<string>\",\n      \"movies\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ],\n  \"userid\": \"<string>\"\n}"
+								},
+								{
+									"name": "an existing item already exists",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"date\": \"<string>\",\n  \"movieid\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/:userid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												":userid"
+											],
+											"variable": [
+												{
+													"key": "userid",
+													"value": "<string>",
+													"description": "(Required) User ID."
+												}
+											]
+										}
+									},
+									"status": "Conflict",
+									"code": 409,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "home page of the service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "text/html"
+							}
+						],
+						"url": {
+							"raw": "{{user}}/",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "welcome message",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/html"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/html"
+								}
+							],
+							"cookie": [],
+							"body": "<string>"
+						}
+					]
+				},
+				{
+					"name": "get the the last booking from a user id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{user}}/lastbooking/chris_rivers",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								"lastbooking",
+								"chris_rivers"
+							]
+						},
+						"description": "By passing in the appropriate options, you can get last booking of a user"
+					},
+					"response": [
+						{
+							"name": "Last booking of the user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/lastbooking/:userid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lastbooking",
+										":userid"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": "<string>",
+											"description": "(Required) User ID."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"date\": \"<string>\",\n  \"movies\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lastbooking/:userid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lastbooking",
+										":userid"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": "<string>",
+											"description": "(Required) User ID."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "get all movies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{user}}/movies/chris_rivers",
+							"host": [
+								"{{user}}"
+							],
+							"path": [
+								"movies",
+								"chris_rivers"
+							]
+						},
+						"description": "return all moives from a user"
+					},
+					"response": [
+						{
+							"name": "list of all the movies of the user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/allMovies/:userid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"allMovies",
+										":userid"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": "<string>",
+											"description": "(Required) User ID."
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"allUsers\": [\n    {\n      \"title\": \"<string>\",\n      \"rating\": \"<number>\",\n      \"director\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"rating\": \"<number>\",\n      \"director\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/allMovies/:userid",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"allMovies",
+										":userid"
+									],
+									"variable": [
+										{
+											"key": "userid",
+											"value": "<string>",
+											"description": "(Required) User ID."
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "get the the last movie that the user watched",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/lastMovie{{userid}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"lastMovie{{userid}}"
+							]
+						},
+						"description": "By passing in the appropriate options, you can get the last movie that the user watched"
+					},
+					"response": [
+						{
+							"name": "Last movie that the user watched",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/lastMovie{{userid}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lastMovie{{userid}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"title\": \"<string>\",\n  \"rating\": \"<number>\",\n  \"director\": \"<string>\",\n  \"id\": \"<string>\"\n}"
+						},
+						{
+							"name": "bad input parameter",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lastMovie{{userid}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lastMovie{{userid}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "movie",
+			"value": "http://172.18.0.4:3200/",
+			"type": "string"
+		},
+		{
+			"key": "booking",
+			"value": "http://172.18.0.5:3201/",
+			"type": "string"
+		},
+		{
+			"key": "showtime",
+			"value": "http://172.18.0.2:3202/",
+			"type": "string"
+		},
+		{
+			"key": "user",
+			"value": "http://172.18.0.3:3203/",
+			"type": "string"
+		}
+	]
+}
