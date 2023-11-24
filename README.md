@@ -11,10 +11,10 @@ Ce TP initial consiste à implémenter quatre services qui communiquent entre eu
 ![Architecture des services TP1](./archi1.png 'Codey, la mascotte de Codecademy')
 
 Il y a quatre services :
-- Le service Utilisateur est directement et indirectement connecté aux autres services et pourrait être lié à une interface utilisateur.
+- Le service User est directement et indirectement connecté aux autres services et pourrait être lié à une interface utilisateur.
 - Le service Times/Showtime contient des données de programmation de films.
-- Le service de Réservation représente les réservations d'utilisateurs pour une séance spécifique.
-- Le service de Film agit comme base de données de films.
+- Le service Booking représente les réservations d'utilisateurs pour une séance spécifique.
+- Le service Movie agit comme base de données de films.
 
 ### Lancement des services :
 
@@ -28,7 +28,7 @@ Il y a quatre services :
    docker-compose up
    ```
 
-_Les adresses des services seront consignées (car en mode développement)_
+_Les adresses des services seront afficher dans les logs (car en mode développement)_
 
 ### Tests des points d'accès :
 
@@ -37,6 +37,7 @@ Importez le fichier JSON TPx.postman_collection dans Postman pour tester tous le
 ## TP Mixte
 
 Ce TP consiste à implémenter les mêmes quatre services en utilisant différents types d'API :
+- REST
 - gRPC
 - GraphQL
 
