@@ -43,4 +43,4 @@ Ce TP consiste à implémenter les mêmes quatre services en utilisant différen
 
 ![Architecture des services TP2](./archi2.png 'Codey, la mascotte de Codecademy')
 
-Les instructions pour lancer les différents services sont les mêmes, Docker compose build/up. Pour les tests, utilisez l'espace de travail Postman (gRPC ne peut pas être testé avec un client externe tel que Postman ; pour des tests plus précis, un client de test dédié est nécessaire. Pour GraphQL, utilisez le point de terminaison GET /graphql du service Film et utilisez les requêtes d'exemple dans le fichier ./FILA1_ArchiD_TP2/queries.txt)
+Les instructions pour lancer les différents services sont les mêmes, Docker compose build/up. Pour les tests, utilisez l'espace de travail Postman (gRPC ne peut pas être testé avec un client externe tel que Postman ; pour des tests plus précis, un client de test dédié est nécessaire. Pour GraphQL, utilisez le point de terminaison GET /graphql du service Movie et utilisez les requêtes d'exemple dans le fichier ./FILA1_ArchiD_TP2/queries.txt)
