@@ -9,6 +9,12 @@ query{
   }
 }
 
+query{
+  movie_with_id(_id:"96798c08-d19b-4986-a05d-7da856efb697") {
+    title
+  }
+}
+
 mutation{
     update_movie_rate(_id:"a8034f44-aee4-44cf-b32c-74cf452aaaae",_rate:8.4) {
         title
