@@ -1,46 +1,46 @@
 # FILA1_ArchiD_TP
 
-## TP Flask, REST, and OpenAPI
+## Flask, REST, and OpenAPI Lab
 
-**Code original : Hélène Coullon**
+**Original Code: Hélène Coullon**
 
-**Auteurs : Tom Freret, Clément Galiot**
+**Authors: Tom Freret, Clément Galiot**
 
-Ce TP initial consiste à implémenter quatre services qui communiquent entre eux via des API REST. Vous pouvez observer un diagramme ci-dessus illustrant l'architecture des différents services.
+This initial lab aims to implement four services communicating with each other via REST APIs. You can observe a diagram above illustrating the architecture of the various services.
 
-![Architecture des services TP1](./archi1.png 'Codey, la mascotte de Codecademy')
+![Services Architecture TP1](./archi1.png 'Codey, the Codecademy mascot')
 
-Il y a quatre services :
-- Le service User est directement et indirectement connecté aux autres services et pourrait être lié à une interface utilisateur.
-- Le service Times/Showtime contient des données de programmation de films.
-- Le service Booking représente les réservations d'utilisateurs pour une séance spécifique.
-- Le service Movie agit comme base de données de films.
+There are four services:
+- The User service is directly and indirectly connected to other services and could be linked to a user interface.
+- The Times/Showtime service contains movie scheduling data.
+- The Booking service represents user bookings for a specific screening.
+- The Movie service acts as the movie database.
 
-### Lancement des services :
+### Launching Services:
 
-1. **Construisez les images Docker :**
+1. **Build Docker images:**
    ```bash
    docker-compose build
    ```
 
-2. **Lancez les services :**
+2. **Launch services:**
    ```bash
    docker-compose up
    ```
 
-_Les adresses des services seront afficher dans les logs (car en mode développement)_
+_Service addresses will be displayed in logs (as in development mode)_
 
-### Tests des points d'accès :
+### Endpoint Testing:
 
-Importez le fichier JSON TPx.postman_collection dans Postman pour tester tous les points de terminaison. Assurez-vous de mettre à jour les adresses des services dans les variables de l'espace de travail de Postman en conséquence.
+Import the TPx.postman_collection JSON file into Postman to test all endpoints. Make sure to update service addresses in Postman workspace variables accordingly.
 
-## TP Mixte
+## Mixed Lab
 
-Ce TP consiste à implémenter les mêmes quatre services en utilisant différents types d'API :
+This lab involves implementing the same four services using different types of APIs:
 - REST
 - gRPC
 - GraphQL
 
-![Architecture des services TP2](./archi2.png 'Codey, la mascotte de Codecademy')
+![Services Architecture TP2](./archi2.png 'Codey, the Codecademy mascot')
 
-Les instructions pour lancer les différents services sont les mêmes, Docker compose build/up. Pour les tests, utilisez l'espace de travail Postman (gRPC ne peut pas être testé avec un client externe tel que Postman ; pour des tests plus précis, un client de test dédié est nécessaire. Pour GraphQL, utilisez le point de terminaison GET /graphql du service Movie et utilisez les requêtes d'exemple dans le fichier ./FILA1_ArchiD_TP2/queries.txt)
+Instructions for launching different services remain the same, Docker compose build/up. For testing, utilize the Postman workspace (gRPC can't be tested with an external client like Postman; for more precise testing, a dedicated test client is required. For GraphQL, use the GET /graphql endpoint of the Movie service and utilize sample queries in the ./FILA1_ArchiD_TP2/queries.txt file).
